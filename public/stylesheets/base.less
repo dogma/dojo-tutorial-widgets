@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'ikonic';
+    src: url("./fonts/ikonic.eot");
+    src: local('ikonicStroke'),
+       url("./fonts/ikonic.svg#ikonic") format('svg'),
+	   url("./fonts/ikonic.otf") format('opentype');
+
+}
+
+@dark: #335566;
+@darkRed: #663333;
+@font: #FFF;
+@background: darken(@dark,10%);
+
+@unit: 95px;
+@gutter: 5px;
+@defaultPadding: 10px;
+
+.aBox(@columns: 1) {
+    width: (@unit * @columns) + (@gutter * (@columns - 1)) - (@defaultPadding * 2);
+    margin: @gutter;
+    padding: @gutter;
+}
+
+#page {
+    margin-left: auto;
+    margin-right:auto;
+    width: 1150px;
+
+    > * {
+        display: inline-block;
+        float: left;
+    }
+    #content {
+        .border-radius();
+        .aBox(8);
+        background-color: desaturate(lighten(@dark,20%),10%);
+        padding: 20px;
+        color: darken(@dark,20%);
+    }
+
+    #sidebar {
+        .border-radius();
+        .aBox(3);
+        background-color: @dark;
+
+        .exTodo {
+            display: inline-block;
+            border: 1px solid @font;
+            width: 100%;
+            min-height:100px;
+            .border-radius(5px);
+
+            .header {
+                height: 20px;
+                font-size: 1.1em;
+                .gradient(lighten(@dark,20%),darken(@dark,10%));
+            }
+        }
+    }
+
+    a {
+        color: @background;
+    }
+}
+
+.gradient (@from: #000, @end: #FFF) {
+    background: @from;
+    background: -moz-linear-gradient(top,@from,@end);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@from), to(@end));
+}
+
+.border-radius (@radius: 10px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+body {
+    margin: 0;
+    font-family: verdana;
+    .gradient(darken(@dark,20%),@dark);
+    color: @font;
+
+    pre {
+        display: block;
+        background-color: darken(@dark,20%);
+        border: 1px dashed @font;
+        padding: 10px;
+        margin: 10px;
+        overflow: auto;
+        color: @font;
+    }
+
+    pre.done {
+        background-color: @darkRed;
+    }
+}
+
+body, td {
+    font-size: 9pt;
+}
+
+header {
+    padding: 10px;
+    .gradient(@dark,desaturate(lighten(@dark,10%),5%));
+
+    #menu {
+        a {
+            text-decoration: none;
+            color: @font;
+        }
+    }
+    a {
+        margin: 0 10px;
+    }
+}
+
+.todoTask {
+
+    .done:before {
+        content: "done";
+    }
+
+    .undone {
+        content: "undone";
+    }
+}
