@@ -32,31 +32,17 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(params[:todo])
 
-    respond_to do |format|
-      if @todo.save
-        format.html { redirect_to(@todo, :notice => 'Todo was successfully created.') }
-        format.xml  { render :xml => @todo, :status => :created, :location => @todo }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @todo.errors, :status => :unprocessable_entity }
-      end
-    end
+    @todo.save
+    respond_with @todo
   end
 
   # PUT /todos/1
   # PUT /todos/1.xml
   def update
     @todo = Todo.find(params[:id])
+    @todo.update_attributes(params[:todo])
 
-    respond_to do |format|
-      if @todo.update_attributes(params[:todo])
-        format.html { redirect_to(@todo, :notice => 'Todo was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @todo.errors, :status => :unprocessable_entity }
-      end
-    end
+    respond_with @todo
   end
 
   # DELETE /todos/1
@@ -65,6 +51,9 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
     @todo.destroy
 
-    respond_with { head :ok }
+    respond_to do |format|
+      format.html { redirect_to(pages_url) }
+      format.json  { head :ok }
+    end
   end
 end

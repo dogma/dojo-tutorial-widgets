@@ -65,10 +65,9 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @page.destroy
 
-    respond_with { head :ok }
-#    respond_to do |format|
-#      format.html { redirect_to(pages_url) }
-#      format.xml  { head :ok }
-#    end
+    respond_to do |format|
+      format.html { redirect_to(pages_url) }
+      format.json  { head :ok }
+    end
   end
 end
