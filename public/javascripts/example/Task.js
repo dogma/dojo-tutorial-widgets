@@ -55,7 +55,6 @@ dojo.declare("example.Task",[dijit._Widget,dijit._Templated],{
             load: function (data) {
                 //reacts to the data returned by the request.
                 //The data will be returned as a processed json object.
-                console.info(ob.data);
                 if(ob.data.done != null && ob.data.done != "") {
                     ob.set("done","done");
                 } else {

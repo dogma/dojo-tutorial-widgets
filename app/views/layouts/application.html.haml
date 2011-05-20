@@ -3,8 +3,9 @@
     %title Todo Dojo Widget Tutorial
     =stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/tundra/tundra.css"
     =stylesheet_link_tag "base.less", :type=>"text/css", :rel=>"stylesheet/less"
+    =stylesheet_link_tag "widget.less", :type=>"text/css", :rel=>"stylesheet/less"
     =javascript_include_tag "http://lesscss.googlecode.com/files/less-1.1.0.min.js"
-    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js", :djConfig=>"isDebug: false, baseUrl: './javascripts/', modulePaths: { 'module' : 'path', 'example': 'example' }"
+    =javascript_include_tag "http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojo/dojo.xd.js", :djConfig=>"isDebug: false, baseUrl: '/javascripts/', modulePaths: { 'module' : 'path', 'example': 'example' }"
     =csrf_meta_tag
   %body
     %header
