@@ -70,4 +70,15 @@ class PagesController < ApplicationController
       format.json  { head :ok }
     end
   end
+
+  def tutorial
+    @page = Page.where(:tutorial=>params[:tutorial]).where(:step=>params[:step])
+    @page = @page[0]
+    respond_with @page
+  end
+
+  def toc
+    @pages = Page.select([:id,:title,:step,:tutorial]).where(:tutorial=>params[:tutorial])
+    respond_with @pages
+  end
 end

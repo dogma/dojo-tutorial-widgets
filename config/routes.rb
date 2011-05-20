@@ -6,6 +6,8 @@ DojoTodo::Application.routes.draw do
 
   resources :pages
 
+  match "/tutorial/:tutorial/:step" => "pages#tutorial", :as=>"tut"
+  match "/tutorial/:tutorial" => "pages#toc", :as=>"toc"
   match "/welcome" => "home#welcome", :as=>"welcome"
   # The priority is based upon order of creation:
   # first created -> highest priority.

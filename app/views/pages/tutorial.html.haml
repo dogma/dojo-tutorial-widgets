@@ -1,0 +1,7 @@
+#notice= notice
+
+%h1= @page.step.to_s << ". " << @page.title
+!= @page.content
+
+=link_to 'Table of Contents', toc_path(@page.tutorial)
+=link_to 'Next', tut_path(@page.tutorial,(@page.step+1))
