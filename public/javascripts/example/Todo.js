@@ -38,6 +38,7 @@ dojo.declare("example.Todo",[dijit._Widget,dijit._Templated], {
         })
     },
     addTask: function (taskData) {
+        console.info("Is chrome here");
         var t = new example.Task({
             data: taskData
         });

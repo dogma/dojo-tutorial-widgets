@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.text_area :content, :width=>'100%', :style=>"width: 100%" %>
+    <%= f.text_area :content, :width=>'100%', :style=>"background-color:white; width: 100%", :id=>"editor" %>
   </div>
   <div class="field">
     <%= f.label :step %><br />
@@ -31,3 +31,16 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  dojo.require("dijit.Editor");
+  dojo.require("dijit._editor.plugins.FontChoice");
+  dojo.addOnLoad(function () {
+    var editorField = dojo.byId("editor");
+
+
+    var editor = new dijit.Editor({
+      extraPlugins: ['formatBlock']
+    },"editor");
+  });
+</script>
