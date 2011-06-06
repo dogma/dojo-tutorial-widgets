@@ -5,6 +5,8 @@
 <%= raw @page.content %>
 
 <p>
+<%= link_to 'Previous', @page.prev %> |
 <%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Next', @page.next %> |
 <%= link_to 'Table of Contents', pages_path %>
 </p>

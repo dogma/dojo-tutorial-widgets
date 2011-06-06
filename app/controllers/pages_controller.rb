@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.xml
   def index
-    @pages = Page.all
+    @pages = Page.order([:tutorial,:step]).all
 
     respond_with @pages
   end
